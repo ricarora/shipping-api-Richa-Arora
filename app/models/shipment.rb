@@ -1,7 +1,6 @@
 class Shipment < ActiveRecord::Base
   include ActiveMerchant::Shipping
 
-  validates :name, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :postal_code, presence: true
