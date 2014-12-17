@@ -8,9 +8,9 @@ class ShipmentsController < ApplicationController
     @shipment = Shipment.new(shipment_params)
     if @shipment.save
       response = []
-      response << (@shipment.ups_rates.as_json(shipment_hash))
-      response << usps_result_hash(@shipment.usps_rates)
-      render json: response.as_json
+      response << @shipment.ups_rates.as_json(shipment_hash)
+      response << usps_result_hash(@shipment.usps_rates).as_json
+      render json: response
     else
       render json: {error: "Incomplete input"}
     end
