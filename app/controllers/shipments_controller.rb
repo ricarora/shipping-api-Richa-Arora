@@ -10,7 +10,6 @@ class ShipmentsController < ApplicationController
     @log.url = request.url
     @log.ip_address = request.ip
     @log.params = request.params.as_json
-    
     if @shipment.save
       response = []
       response << @shipment.ups_rates.as_json(shipment_hash)
